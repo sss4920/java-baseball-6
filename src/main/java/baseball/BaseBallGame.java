@@ -79,14 +79,29 @@ public class BaseBallGame {
 		if (gameResult[1] == 3){
 			return BaseBallResult.THREE_STRIKE.result; //3스트라이크인 경우
 		}
-		if (gameResult[0] >= 1){
-			sb.append(gameResult[0])
-				.append("볼");
+		if (gameResult[0] > 0){ //볼인 경우
+			switch (gameResult[0]){
+				case 1:
+					sb.append(BaseBallResult.ONE_BALL.result);
+					break;
+				case 2:
+					sb.append(BaseBallResult.TWO_BALL.result);
+					break;
+				case 3:
+					sb.append(BaseBallResult.THREE_BALL.result);
+					break;
+			}
 		}
-		if (gameResult[1] >= 1){
-			sb.append(" ")
-				.append(gameResult[1])
-				.append("스트라이크");
+		if (gameResult[1] > 0){ // 스트라이크인 경우
+			sb.append(" ");
+			switch (gameResult[1]){
+				case 1:
+					sb.append(BaseBallResult.ONE_STRIKE.result);
+					break;
+				case 2:
+					sb.append(BaseBallResult.TWO_STRIKE.result);
+					break;
+			}
 		}
 		return sb.toString().strip();
 	}

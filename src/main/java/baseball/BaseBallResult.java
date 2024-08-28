@@ -6,13 +6,21 @@ package baseball;
  */
 public enum BaseBallResult {
 
-	THREE_STRIKE("3스트라이크\n3개의 숫자를 모두 맞히셨습니다! 게임 종료"),
 
-	NOTHING("낫싱");
+	NOTHING(0,"낫싱"),
 
+	ONE_BALL(1,"1볼"),
+	TWO_BALL(2,"2볼"),
+	THREE_BALL(3,"3볼"),
+
+	ONE_STRIKE(1,"1스트라이크"),
+	TWO_STRIKE(2,"2스트라이크"),
+	THREE_STRIKE(3, "3스트라이크\n3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+	final int status;
 	final String result;
 
-	BaseBallResult(String result) {
+	BaseBallResult(int status, String result) {
+		this.status = status;
 		this.result= result;
 	}
 }
